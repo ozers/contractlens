@@ -18,13 +18,12 @@
     "LICENSE"
   ],
   "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --dts",
-    "dev": "tsup src/index.ts --format esm,cjs --dts --watch",
+    "build": "tsup",
+    "dev": "tsup --watch",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
-    "lint": "eslint src/",
-    "typecheck": "tsc --noEmit",
+    "lint": "tsc --noEmit",
     "prepublishOnly": "npm run build && npm run test"
   },
   "keywords": [
