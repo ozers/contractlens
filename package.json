@@ -46,7 +46,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ozers/contractlens"
+    "url": "git+https://github.com/ozers/contractlens.git"
   },
   "bugs": {
     "url": "https://github.com/ozers/contractlens/issues"
