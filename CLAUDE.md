@@ -15,7 +15,7 @@ npm run lint           # Type-check only (tsc --noEmit)
 ## Rules
 
 - TypeScript strict mode, no `any`
-- Zero extra dependencies — only ajv, ajv-formats, swagger-parser
+- Zero extra dependencies — only ajv, ajv-formats, js-yaml
 - Never crash the host app — all errors in middleware/reporters must be caught silently
 - All tests must pass and build must succeed before committing
 
@@ -30,7 +30,7 @@ ContractLens is Express middleware that validates API responses against an OpenA
 - `validator.ts` — AJV-based JSON Schema validation (exported but not used by middleware). Uses `ajv` + `ajv-formats` for strict JSON Schema validation.
 
 **Key modules:**
-- `src/core/spec-loader.ts` — Parses OpenAPI specs via swagger-parser, caches by path. Builds a `Map<"METHOD /path", RouteSchema>` lookup.
+- `src/core/spec-loader.ts` — Parses OpenAPI specs via js-yaml with custom local `$ref` resolver, caches by path. Builds a `Map<"METHOD /path", RouteSchema>` lookup.
 - `src/core/drift-detector.ts` — The core diffing engine. `detectDrift()` is the main entry point.
 - `src/middleware/express.ts` — The `contractlens()` factory. In `warn`/`log` mode, validation runs async via `process.nextTick` (non-blocking). In `strict` mode, validation runs before sending the response and returns 500 on drift.
 - `src/reporters/` — `ConsoleReporter` and `WebhookReporter` implement the `Reporter` interface.
