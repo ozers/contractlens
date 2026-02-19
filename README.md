@@ -149,9 +149,27 @@ Request → Your Handler → Response
 
 ContractLens intercepts `res.json()` **after** the response is sent (non-blocking in `warn`/`log` mode), so it adds zero latency to your API responses.
 
+## Examples
+
+The [`examples/`](examples/) directory contains runnable demos for common scenarios:
+
+| Example | Description |
+|---|---|
+| [`basic-usage.ts`](examples/basic-usage.ts) | Warn mode — logs drift to console, doesn't block responses |
+| [`strict-mode.ts`](examples/strict-mode.ts) | Strict mode — returns 500 on contract drift (CI/staging) |
+| [`production-setup.ts`](examples/production-setup.ts) | Sampling + webhook alerts + path exclusion |
+| [`custom-reporter.ts`](examples/custom-reporter.ts) | Implement the `Reporter` interface for custom logging |
+
+```bash
+git clone https://github.com/ozers/contractlens.git
+cd contractlens
+npm install && npm run build
+npx ts-node examples/basic-usage.ts
+```
+
 ## Requirements
 
-- Node.js >= 18
+- Node.js >= 20
 - Express >= 4.0
 - An OpenAPI 3.0.x or 3.1.x specification
 
