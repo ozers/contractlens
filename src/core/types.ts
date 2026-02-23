@@ -39,12 +39,6 @@ export interface ContractLensOptions {
    * e.g. ['/health', '/metrics', '/internal/*']
    */
   exclude?: string[];
-
-  /**
-   * Whether to validate request bodies too (not just responses)
-   * Default: false (response-only for MVP)
-   */
-  validateRequests?: boolean;
 }
 
 export type ReporterConfig = 'console' | 'webhook' | Reporter;
